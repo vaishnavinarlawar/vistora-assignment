@@ -1,24 +1,27 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import CartItem from './CartItem';
 import { useCart } from '../context/CartContext';
 
-
 const Cart = () => {
+    // Accessing cart state and actions from the context
     const { cartItems, totalItems, totalPrice, clearCart } = useCart();
     const [checkoutComplete, setCheckoutComplete] = useState(false);
 
+    // Function to handle the checkout process
     const handleCheckout = () => {
         setCheckoutComplete(true);
         setTimeout(() => {
-            clearCart();
-            setCheckoutComplete(false);
+            clearCart(); // Clear the cart after successful checkout
+            setCheckoutComplete(false); // Reset the checkout state
         }, 3000);
     };
 
-    useEffect(()=>{
+    // Clear cart items when the component mounts
+    useEffect(() => {
         clearCart();
-    },[])
+    }, [clearCart])
 
+    // Render checkout success message
     if (checkoutComplete) {
         return (
             <div className="cart">
@@ -30,6 +33,7 @@ const Cart = () => {
         );
     }
 
+    // Render empty cart message if no items are present
     if (cartItems.length === 0) {
         return (
             <div className="cart empty-cart">
@@ -39,6 +43,7 @@ const Cart = () => {
         );
     }
 
+    // Render cart with items
     return (
         <div className="cart">
             <div className="cart-header">

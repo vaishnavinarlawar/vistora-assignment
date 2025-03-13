@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Header = () => {
-
-    // const [cartOpen, setCartOpen] = useState(false);
-
+    // Render the header with the logo
     return (
         <header className="header">
             <div className="logo">
                 <h1>ShopMart</h1>
             </div>
-            {/* <div className="cart-summary" onClick={() => setCartOpen(!cartOpen)}>
-                <div className="cart-icon">
-                    🛒
-                </div>
-            </div> */}
         </header>
     );
 };
