@@ -19,7 +19,7 @@ const Cart = () => {
     // Clear cart items when the component mounts
     useEffect(() => {
         clearCart();
-    }, [clearCart])
+    }, [])
 
     // Render checkout success message
     if (checkoutComplete) {
